@@ -24,9 +24,8 @@ def admin():
     tenants = Tenant.query.all()
     agents = Agent.query.all()
     properties = Property.query.all()
-    messages = Message.query.all()  
 
-    return render_template('admin.html', tenants=tenants, agents=agents, properties=properties, messages=messages)
+    return render_template('admin.html', tenants=tenants, agents=agents, properties=properties)
 
 @routes.route('/agent')
 @login_required
@@ -36,11 +35,10 @@ def agent():
 
     interested_users = InterestedUser.query.filter_by(agent_id=current_user.id).all()
     tenants = Tenant.query.filter_by(agent_id=current_user.id).all()
-    messages = Message.query.filter_by(agent_id=current_user.id).all()
 
     return render_template('agent.html', leased_properties=leased_properties, 
                            interested_users=interested_users, 
-                           tenants=tenants, messages=messages, unleased_properties = unleased_properties)
+                           tenants=tenants,  unleased_properties = unleased_properties)
 
                            
 @routes.route('/leasing', methods=['GET', 'POST'])
@@ -52,8 +50,8 @@ def leasing():
         message = form.message.data
         
         # Create instance of Selling model and save to the database
-        selling_entry = Selling(name=name, email=email, message=message)
-        db.session.add(leasing_entry)
+        selling_entry = Leasing(name=name, email=email, message=message)
+        db.session.add(selling_entry)
         db.session.commit()
         
         # Send email notification
