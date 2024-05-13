@@ -89,7 +89,11 @@ The following errors have been identified in the application:
 4. **Tenant Database Display**:
    - When tenants are logged in, the database does not display any information.
 
-5. **Home Page Search Bar**:
+5. **Old Database**:
+    - The old database is still present in the application, which may cause confusion and lead to errors.
+    -I do not know how to remove it yet.
+
+6. **Home Page Search Bar**:
     -The search bar on the home page is not linked to anything.
 
 ___
