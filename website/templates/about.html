@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="about">
+    <div class="about-text">
+      <h1>About Us</h1>
+      <p>
+          We enable financial independence by partnering with homeowners, transforming them into successful property entrepreneurs.
+      </p>
+      <div class="future-text">
+      <h2>Contributing to a brighter future.</h2>
+      <p>The world grapples with widespread unemployment and land distribution challenges. Governments and NGOs do important work, but their capacity is limited. We think that starting businesses with good intentions is a faster, grassroots, and empowering way to tackle these problems. This belief inspired the founding of Bitprop in early 2019.</p>
+      </div>
+    </div>
+    <div class="about-img">
+      <img src="{{ url_for('static', filename='files/Slideshow2.png') }}">
+    </div>
+  </section>
+  <section class="location">
+    <div class="centre-left">
+      <h2>Locations for operation</h2>
+    </div>
+    <div class="locations">
+      <div class="location-img">
+        <img src="{{ url_for('static', filename='files/location1.jpg') }}">
+        <div class="location-name">Croassrods</div>
+      </div>
+      <div class="location-img">
+        <img src="{{ url_for('static', filename='files/location2.jpg') }}">
+        <div class="location-name">Khayekitsha</div>
+      </div>
+      <div class="location-img">
+        <img src="{{ url_for('static', filename='files/location3.jpg') }}">
+        <div class="location-name">Athlone</div>
+      </div>
+      <div class="location-img">
+        <img src="{{ url_for('static', filename='files/location4.jpg') }}">
+        <div class="location-name">Parow</div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

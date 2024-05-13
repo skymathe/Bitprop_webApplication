@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Bitprop{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" type="text/css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('routes.index') }}" class="logo"><img src="{{ url_for('static', filename='files/bitprop-logo.png') }}" alt="Bitprop logo"></a>
+    
+        <ul class="navbar">
+            <li><a href="{{ url_for('routes.index') }}">Home</a></li>
+            <li><a href="{{ url_for('routes.about') }}">About Us</a></li>
+            <li><a href="{{ url_for('routes.property') }}">Property</a></li>
+            <li><a href="{{ url_for('routes.leasing') }}">Leasing</a></li>
+            <li><a href="{{ url_for('routes.selling') }}">Selling</a></li>
+            <li><a href="{{ url_for('routes.contact') }}">Contact Us</a></li>
+        </ul>
+    
+        <div class="h-btn">
+            <a href="{{ url_for('auth.login') }}" class="btn1">Login</a>
+            <a href="{{ url_for('auth.signup') }}" class="btn2">Sign Up</a>
+            <button class="bx bx-menu" id="menu-icon" aria-label="Menu icon"></button>
+        </div>
+    </header>
+    
+
+    {% block content %}{% endblock %}
+
+    <footer>
+        <p>&copy; Sky Fezile Noel Mathe</p>
+    </footer>
+</body>
+</html>

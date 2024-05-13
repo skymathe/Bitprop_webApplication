@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bitprop Agent Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/users.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" type="text/css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <a class="logo"><img src="{{ url_for('static', filename='files/bitprop-logo.png') }}" alt="Bitprop logo"></a>
+        <div class="h-btn"> <a href="{{ url_for('routes.index') }}" class="btn2">Logout</a></div>
+    </header>
+
+    <div class="content">
+        <h1>Welcome, Agent!</h1>
+
+        <details>
+            <summary>Leased Properties</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property Name</th>
+                        <th>Tenant Name</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Beds</th>
+                        <th>Baths</th>
+                        <th>Square Meter</th>
+                        <th>Lease Period</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for property in leased_properties %}
+                    <tr>
+                        <td>{{ property.name }}</td>
+                        <td>{{ property.tenant.name }}</td>
+                        <td>{{ property.address }}</td>
+                        <td>{{ property.price }}</td>
+                        <td>{{ property.beds }}</td>
+                        <td>{{ property.baths }}</td>
+                        <td>{{ property.square_meter }}</td>
+                        <td>{{ property.lease_period }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Unleased Properties</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Property Name</th>
+                        <th>Address</th>
+                        <th>Price</th>
+                        <th>Beds</th>
+                        <th>Baths</th>
+                        <th>Square Meter</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for property in unleased_properties %}
+                    <tr>
+                        <td>{{ property.name }}</td>
+                        <td>{{ property.address }}</td>
+                        <td>{{ property.price }}</td>
+                        <td>{{ property.beds }}</td>
+                        <td>{{ property.baths }}</td>
+                        <td>{{ property.square_meter }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Interested Users</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Property Name</th>
+                        <th>Message</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for user in interested_users %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>{{ user.property.name }}</td>
+                        <td>{{ user.message }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Tenants</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
+                        <th>Property Name</th>
+                        <th>Lease Period</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tenant in tenants %}
+                    <tr>
+                        <td>{{ tenant.name }}</td>
+                        <td>{{ tenant.email }}</td>
+                        <td>{{ tenant.phone }}</td>
+                        <!-- <td>{{ tenant.property.name }}</td> -->
+                        <td>{{ tenant.lease_period }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Inbox</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sender</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in messages %}
+                    <tr>
+                        <td>{{ message.sender }}</td>
+                        <td>{{ message.subject }}</td>
+                        <td>{{ message.message }}</td>
+                        <td>{{ message.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+    </div>
+
+    <footer>
+        <p>&copy; 2022 Bitprop. All rights reserved.</p>
+    </footer>
+</body>
+</html>

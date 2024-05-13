@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bitprop Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Users.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" type="text/css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <a class="logo"><img src="{{ url_for('static', filename='files/bitprop-logo.png') }}" alt="Bitprop logo"></a>
+        <div class="h-btn"> <a href="{{ url_for('auth.add_property') }}" class="btn2" >Add Property</a></div>
+        <div class="h-btn"> <a href="{{ url_for('routes.index') }}" class="btn1">Logout</a></div>
+    </header>
+
+    <div class="content">
+        <h1>Welcome, Admin!</h1>
+
+        <details>
+            <summary>Tenants</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Property Name</th>
+                        <th>Agent</th>
+                        <th>Lease Period</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for tenant in tenants %}
+                    <tr>
+                        <td>{{ tenant.name }}</td>
+                        <td>
+                            {% if tenant.rented_properties %}
+                                {{ tenant.rented_properties[0].name }}
+                            {% else %}
+                                No property rented
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if tenant.rented_properties %}
+                                {{ tenant.rented_properties[0].agent.name }}
+                            {% else %}
+                                No property rented
+                            {% endif %}
+                        </td>
+                        <td>
+                            {% if tenant.lease_period %}
+                                {{ tenant.lease_period }}
+                            {% else %}
+                                Not specified
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Agents</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Properties</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for agent in agents %}
+                    <tr>
+                        <td>{{ agent.name }}</td>
+                        <td>{{ agent.email }}</td>
+                        <td>
+                            {% for property in agent.properties %}
+                            {{ property.name }},
+                            {% endfor %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Properties</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Type</th>
+                        <th>Location</th>
+                        <th>Price</th>
+                        <th>Agent</th>
+                        <th>Tenant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for property in properties %}
+                    <tr>
+                        <td>{{ property.name }}</td>
+                        <td>{{ property.description }}</td>
+                        <td>{{ property.property_type }}</td>
+                        <td>{{ property.address }}</td>
+                        <td>{{ property.price }}</td>
+                        <td>{{ property.agent.name }}</td>
+                        <td>{% if property.tenant %}{{ property.tenant.name }}{% else %}Blank{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+        <details>
+            <summary>Internal Inbox</summary>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sender</th>
+                        <th>Subject</th>
+                        <th>Message</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in messages %}
+                    <tr>
+                        <td>{{ message.sender }}</td>
+                        <td>{{ message.subject }}</td>
+                        <td>{{ message.message }}</td>
+                        <td>{{ message.date }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </details>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2022 Bitprop. All rights reserved.</p>
+    </footer>
+</body>
+</html>

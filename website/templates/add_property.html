@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bitprop Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/response.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" type="text/css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+<body>
+    <header>
+        <a href="{{ url_for('routes.index') }}" class="logo">
+            <img src="{{ url_for('static', filename='files/bitprop-logo.png') }}" alt="Bitprop logo">
+        </a>
+        <div class="h-btn">
+            <a href="{{ url_for('routes.index') }}" class="btn2">Logout</a>
+        </div>
+    </header>
+    
+    <section class="form-section">   
+        <form method="POST" enctype="multipart/form-data" class="property-form">
+
+            <label for="name">Name:</label><br>
+            <textarea id="name" name="name" required></textarea><br>
+
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" required></textarea><br>
+
+            <label for="adress">Address:</label><br>
+            <input type="text" id="adress" name="adress" required><br>
+            
+            <label for="beds">Beds:</label><br>
+            <input type="number" id="beds" name="beds" required><br>
+            
+            <label for="bathrooms">Bathrooms:</label><br>
+            <input type="number" id="bathrooms" name="bathrooms" required><br>
+            
+            <label for="price">Price:</label><br>
+            <input type="number" id="price" name="price" required><br>
+            
+            <label for="agent">Agent:</label><br>
+            <select id="agent" name="agent" required>
+                {% for agent in agents %}
+                    <option value="{{ agent.id }}">{{ agent.name }}</option>
+                {% endfor %}
+            </select><br>
+            
+            <label for="photo">Photo:</label><br>
+            <input type="file" id="photo" name="photo" required accept="image/*"><br>
+            
+            <button type="submit" class="btn-submit">Add Property</button>
+        </form>
+    </section>
+</body>
+</html>

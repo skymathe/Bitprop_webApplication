@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bitprop Admin Panel</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/Users.css') }}">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" type="text/css">
+    <script src="{{ url_for('static', filename='js/script.js') }}" defer></script>
+</head>
+
+    <main>
+        {% block content %}
+        <h1>Welcome, {{ current_user.name }}!</h1>
+        <h2>Your Rented Properties</h2>
+        <div class="row">
+            {% for property in rented_properties %}
+            <div class="column">
+                <img src="{{ url_for('static', filename='files/' + property.image) }}">
+                <h5>{{ property.name }}</h5>
+                <p>{{ property.address }}</p>
+                <p>{{ property.price }} p/m</p>
+                <div class="list">
+                    <a class="Residence-list">
+                        <i class='bx bxs-bed' ></i>
+                        {{ property.bedrooms }} Bed
+                    </a>
+                    <a class="Residence-list">
+                        <i class='bx bxs-bath' ></i>
+                        {{ property.bathrooms }} Bath
+                    </a>
+                    <a class="Residence-list">
+                        <i class='bx bx-shape-square'></i>
+                        {{ property.size }} sqm
+                    </a>
+            {% endfor %}
+        </div>
+        <h2>Your Agent</h2>
+        <div class="agent-info">
+            <p>{{ agent.name }}</p>
+            <p>{{ agent.email }}</p>
+            <!-- Add more agent information if needed -->
+        </div>
+    {% endblock %}
+</main>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <!-- Add your script tags here -->
+</body>
+</html>

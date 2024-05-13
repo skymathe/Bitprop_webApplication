@@ -1,0 +1,164 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  :root {
+    --h1-font: 3rem;
+    --h2-font: 2rem;
+    --p-font: 1.1rem;
+    --bg-color: #f2f2f2;
+    --text-color: #333;
+    --secondary: #00a5e2;
+    --orange: #ffb800;
+    --primary: #292960;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  h1, h2 {
+    font-size: var(--h1-font);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--primary);
+  }
+
+  h3 {
+    font-size: var(--h2-font);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+  }
+
+  p {
+    font-size: var(--p-font);
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  a {
+    color: var(--secondary);
+    transition: color 0.3s ease;
+  }
+
+  a:hover {
+    color: var(--orange);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 2rem;
+  }
+
+  th, td {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+  }
+
+  th {
+    font-weight: 700;
+    background-color: var(--primary);
+    color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #f5f5f5;
+  }
+
+  tr:hover {
+    background-color: #f9f9f9;
+  }
+
+  details {
+    margin-bottom: 2rem;
+  }
+
+  summary {
+    cursor: pointer;
+    padding: 1rem;
+    background-color: var(--secondary);
+    color: #fff;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details[open] summary {
+    background-color: #fff;
+    color: var(--secondary);
+  }
+
+  details[open] summary::before {
+    content: "−";
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: top;
+  }
+
+  details[open] summary::after {
+    content: "+";
+    display: inline-block;
+    margin-right: 0.5rem;
+    vertical-align: top;
+  }
+
+  footer {
+    background-color: var(--primary);
+    color: #fff;
+    padding: 1rem;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+  }
+
+  .content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .logo {
+    display: inline-block;
+    margin-right: 2rem;
+    vertical-align: top;
+  }
+
+  .logo img {
+    height: 3rem;
+  }
+
+  .h-btn {
+    display: inline-block;
+    margin-top: 0.5rem;
+  }
+
+  .btn2 {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn2:hover {
+    background-color: #fff;
+    color: var(--secondary);
+  }

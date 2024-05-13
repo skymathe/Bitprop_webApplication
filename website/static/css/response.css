@@ -1,0 +1,129 @@
+/* General Styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+}
+
+:root {
+    --h1-font: 3rem;
+    --h2-font: 2rem;
+    --p-font: 1.1rem;
+    --bg-color: #f2f2f2;
+    --text-color: #333;
+    --secondary: #00a5e2;
+    --orange: #ffb800;
+    --primary: #292960;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-size: var(--p-font);
+    line-height: 1.5;
+    padding: 2rem;
+}
+
+/* Header Styles */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--orange);
+    padding: 1rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.h-btn {
+    display: flex;
+    align-items: center;
+}
+
+.btn2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem 1rem;
+    background-color: var(--secondary);
+    color: #fff;
+    border-radius: 5px;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn2:hover {
+    background-color: #fff;
+    color: var(--secondary);
+}
+
+/* Form Styles */
+.form-section {
+    margin-top: 2rem;
+}
+
+.property-form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.property-form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.property-form input[type="text"],
+.property-form input[type="number"],
+.property-form textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.property-form input[type="file"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    margin-bottom: 1rem;
+}
+
+.property-form button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--secondary);
+    color: #fff;
+border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.property-form button[type="submit"]:hover {
+    background-color: #fff;
+    color: var(--secondary);
+}

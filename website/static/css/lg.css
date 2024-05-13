@@ -1,0 +1,123 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    text-decoration: none;
+    font-family: "Work Sans", sans-serif;
+  }
+
+  :root {
+    --h1-font: 3rem;
+    --h2-font: 2rem;
+    --p-font: 1.1rem;
+    --bg-color: gray;
+    --text-color: black;
+    --secondary: #00a5e2;
+    --orange: #ffb800;
+    --primary: #292960;
+  }
+
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+
+  header {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  header img {
+    width: 150px;
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 0;
+  }
+
+  main h1 {
+    font-size: var(--h1-font);
+    color: var(--primary);
+    margin-bottom: 2rem;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+  }
+
+  form .form-group {
+    margin-bottom: 1rem;
+  }
+
+  form .form-group label {
+    font-size: var(--p-font);
+    color: var(--primary);
+    margin-bottom: 0.5rem;
+    text-align: left;
+  }
+
+  form .form-group input {
+    padding: 0.5rem;
+    font-size: var(--p-font);
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+
+  form button {
+    padding: 0.5rem;
+    font-size: var(--p-font);
+    background-color: var(--orange);
+    color: var(--primary);
+    border-radius: 5px;
+    margin-top: 1rem;
+    cursor: pointer;
+  }
+
+  form button:hover {
+    background-color: #333;
+  }
+
+  .signup-link {
+    font-size: var(--p-font);
+    color: var(--primary);
+    margin-top: 1rem;
+  }
+
+  .signup-link a {
+    color: var(--secondary);
+  }
+
+  .signup-link a:hover {
+    text-decoration: underline;
+  }
+
+.alert {
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+

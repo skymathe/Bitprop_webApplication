@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <section class="property">
+    <div class="row">
+      {% for property in properties %}
+      {% if not property.is_rented %}
+      <div class="column">
+        <img src="{{ url_for('static', filename='files/' + property.image) }}">
+        <h5>{{ property.name }}</h5>
+        <p>{{ property.address }}</p>
+        <p>{{ property.price }} p/m</p>
+        <div class="list">
+          <a class="Residence-list">
+            <i class='bx bxs-bed' ></i>
+            {{ property.bedrooms }} Bed
+          </a>
+          <a class="Residence-list">
+            <i class='bx bxs-bath' ></i>
+            {{ property.bathrooms }} Bath
+          </a>
+          <a class="Residence-list">
+            <i class='bx bx-shape-square'></i>
+            {{ property.size }} sqm
+          </a>
+        </div>
+        <div>
+          <a href="{{ url_for('routes.property_interest', property_id=property.id) }}" class="Residence-btn">Express Interest</a>
+        </div>
+      </div>
+      
+          
+        
+      {% endif %}
+      {% endfor %}
+    </div>
+    {% if not properties %}
+    <p>No available properties at this time.</p>
+    {% endif %}
+  </section>
+{% endblock %}
